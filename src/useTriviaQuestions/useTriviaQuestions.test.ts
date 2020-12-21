@@ -15,6 +15,7 @@ describe("useTriviaQuestions", () => {
       response: {
         data: undefined,
       },
+      get: jest.fn(),
     });
     const { result } = renderHook(() => useTriviaQuestions());
     expect(result.current.loading).toBeTruthy();
@@ -28,9 +29,23 @@ describe("useTriviaQuestions", () => {
       response: {
         data: undefined,
       },
+      get: jest.fn(),
     });
     const { result } = renderHook(() => useTriviaQuestions());
     expect(result.current.error).toBe(error);
+  });
+
+  it("fetches trivia questions", () => {
+    const get = jest.fn();
+    (useFetch as jest.Mock).mockReturnValue({
+      loading: false,
+      response: {
+        data: undefined,
+      },
+      get,
+    });
+    renderHook(() => useTriviaQuestions());
+    expect(get).toHaveBeenCalled();
   });
 
   it("defaults trivia questions to empty array", () => {
@@ -39,6 +54,7 @@ describe("useTriviaQuestions", () => {
       response: {
         data: undefined,
       },
+      get: jest.fn(),
     });
     const { result } = renderHook(() => useTriviaQuestions());
     expect(result.current.triviaQuestions).toEqual([]);
@@ -78,6 +94,7 @@ describe("useTriviaQuestions", () => {
           results: TRIVIA_QUESTIONS,
         },
       },
+      get: jest.fn(),
     });
     const { result } = renderHook(() => useTriviaQuestions());
     expect(result.current.triviaQuestions).toEqual(TRIVIA_QUESTIONS);
@@ -101,8 +118,22 @@ describe("useTriviaQuestions", () => {
           results: TRIVIA_QUESTIONS,
         },
       },
+      get: jest.fn(),
     });
     const { result } = renderHook(() => useTriviaQuestions());
     expect(result.current.triviaQuestions[0].question).toEqual(`"'εϕÅ“”`);
+  });
+
+  it("refetches", () => {
+    const get = jest.fn();
+    (useFetch as jest.Mock).mockReturnValue({
+      loading: false,
+      response: {
+        data: undefined,
+      },
+      get,
+    });
+    const { result } = renderHook(() => useTriviaQuestions());
+    expect(result.current.refetch).toBe(get);
   });
 });
