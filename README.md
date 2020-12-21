@@ -1,5 +1,8 @@
 # React Trivia
+
 > 10 question true or false trivia game. Can you answer all 10 correctly?
+
+You can view the production app [here](https://react-trivia-a4265.firebaseapp.com/).
 
 ## Getting started
 
@@ -51,4 +54,6 @@ Runs linter to find potential problems in code
 
 Formats any and all code to consistent spec
 
+##### `yarn deploy`
 
+Runs `yarn build` and then deploys the compiled code to firebase hosting.
