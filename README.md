@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# React Trivia
+> 10 question true or false trivia game. Can you answer all 10 correctly?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting started
 
-## Available Scripts
+In the project directory, run:
 
-In the project directory, you can run:
+### `yarn install`
+
+Installs all dependencies
 
 ### `yarn start`
 
@@ -14,10 +17,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+## Other scripts
+
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the test suite of unit tests
 
 ### `yarn build`
 
@@ -39,8 +43,12 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `yarn lint`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Runs linter to find potential problems in code
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `yarn format`
+
+Formats any and all code to consistent spec
+
+
