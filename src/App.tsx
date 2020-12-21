@@ -28,15 +28,10 @@ export const AppMain = (): JSX.Element => {
   const answers = useArrayState<TriviaQuestionAnswer>([]);
 
   const handleRestart = () => {
+    refetch();
     hasStartedTrivia.setFalse();
     answers.clear();
   };
-
-  return (
-    <button type="button" onClick={() => refetch()}>
-      hi
-    </button>
-  );
 
   if (loading) {
     return <LinearProgress />;
