@@ -1,10 +1,10 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import { Check, X } from "react-feather";
-import GradientButton from "./GradientButton";
+import GradientButton from "../gradientButton/GradientButton";
 import {
   TriviaQuestion as T_TriviaQuestion,
   TriviaQuestionAnswer,
-} from "./types";
+} from "../types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -1,7 +1,6 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
-import { Check, X } from "react-feather";
-import GradientButton from "./GradientButton";
-import { TriviaQuestion, TriviaQuestionAnswer } from "./types";
+import GradientButton from "../gradientButton/GradientButton";
+import { TriviaQuestion, TriviaQuestionAnswer } from "../types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
     answerIconButton: {
       minWidth: 56,
       maxHeight: 56,
+      padding: theme.spacing(1.5),
     },
     question: {
       marginLeft: theme.spacing(2),
@@ -56,17 +56,15 @@ const Results = ({ questions, userAnswers, onSelectRestart }: ResultsProps) => {
       <div className={classes.answersContainer}>
         {questions.map((q, i) => {
           const isCorrect = q.correct_answer === userAnswers[i];
-          console.log(q.correct_answer);
-          console.log(userAnswers[i]);
-
-          const Icon = isCorrect ? Check : X;
           return (
             <div key={q.question} className={classes.questionWithAnswer}>
               <GradientButton
                 disabled={!isCorrect}
                 classes={{ root: classes.answerIconButton }}
               >
-                <Icon className={classes.buttonContent} />
+                <Typography variant="h6" align="center">
+                  {q.correct_answer.charAt(0).toUpperCase()}
+                </Typography>
               </GradientButton>
               <Typography
                 color={isCorrect ? "textPrimary" : "textSecondary"}

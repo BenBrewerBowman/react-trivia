@@ -11,7 +11,7 @@ import {
   withStyles,
 } from "@material-ui/core/styles";
 import clsx from "clsx";
-import { PRIMARY_GRADIENT } from "./theme";
+import { PRIMARY_GRADIENT } from "../theme";
 
 const ColorlibConnector = withStyles({
   alternativeLabel: {

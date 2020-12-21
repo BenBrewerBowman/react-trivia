@@ -10,6 +10,8 @@ const useStyles = makeStyles((theme: Theme) =>
       background:
         "linear-gradient( 135deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
       color: "white",
+    },
+    clickable: {
       "&:hover": {
         cursor: "pointer",
       },
@@ -41,6 +43,7 @@ const GradientButton = ({
       className={clsx(
         classes.root,
         disabled && classes.disabled,
+        onClick && classes.clickable,
         props.classes?.root
       )}
       onClick={!disabled ? onClick : undefined}

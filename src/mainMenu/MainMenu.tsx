@@ -1,5 +1,5 @@
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
-import GradientButton from "./GradientButton";
+import GradientButton from "../gradientButton/GradientButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

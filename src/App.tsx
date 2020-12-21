@@ -9,20 +9,20 @@ import {
   ThemeProvider,
 } from "@material-ui/core";
 import { useArrayState, useBooleanState } from "react-use-object-state";
-import { ErrorBoundary } from "./ErrorBoundary";
-import ErrorMessage from "./ErrorMessage";
-import MainMenu from "./MainMenu";
-import Results from "./Results";
+import { ErrorBoundary } from "./error/ErrorBoundary";
+import ErrorMessage from "./error/ErrorMessage";
+import MainMenu from "./mainMenu/MainMenu";
+import Results from "./results/Results";
 import { createTheme, PRIMARY_GRADIENT } from "./theme";
-import TriviaQuestion from "./TriviaQuestion";
-import TriviaQuestionsStepper from "./TriviaQuestionsStepper";
+import TriviaQuestion from "./triviaQuestion/TriviaQuestion";
+import TriviaQuestionsStepper from "./triviaQuestionsStepper/TriviaQuestionsStepper";
 import { TriviaQuestionAnswer } from "./types";
-import { useTriviaQuestions } from "./useTriviaQuestions";
+import { useTriviaQuestions } from "./useTriviaQuestions/useTriviaQuestions";
 
 const NUM_QUESTIONS = 10;
 
 export const AppMain = (): JSX.Element => {
-  const { triviaQuestions, loading, error } = useTriviaQuestions();
+  const { triviaQuestions, loading, error, refetch } = useTriviaQuestions();
 
   const hasStartedTrivia = useBooleanState(false);
   const answers = useArrayState<TriviaQuestionAnswer>([]);
@@ -31,6 +31,12 @@ export const AppMain = (): JSX.Element => {
     hasStartedTrivia.setFalse();
     answers.clear();
   };
+
+  return (
+    <button type="button" onClick={() => refetch()}>
+      hi
+    </button>
+  );
 
   if (loading) {
     return <LinearProgress />;

@@ -36,6 +36,10 @@ module.exports = {
     "react/destructuring-assignment": "off",
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "import/first": "off",
+    "import/order": "off",
+    "react/jsx-props-no-spreading": "off",
     "prettier/prettier": [
       "error",
       {
