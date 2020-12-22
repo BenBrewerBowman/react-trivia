@@ -44,11 +44,9 @@ export const AppMain = (): JSX.Element => {
       </ErrorMessage>
     );
   }
-  // main menu
   if (!hasStartedTrivia.state) {
     return <MainMenu onSelectStart={hasStartedTrivia.setTrue} />;
   }
-  // questions
   if (answers.state.length < NUM_QUESTIONS) {
     return (
       <>
@@ -60,7 +58,6 @@ export const AppMain = (): JSX.Element => {
       </>
     );
   }
-  // results
   return (
     <Results
       questions={triviaQuestions}
